@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hacker_news_app/src/core/models/story.model.dart';
+import 'package:hacker_news_app/src/providers/story.provider.dart';
 import 'package:hacker_news_app/src/services/stories.service.dart';
 import 'package:hacker_news_app/src/ui/pages/webview.page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -9,23 +11,23 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          child: FutureBuilder<List<int>>(
-            future: StoryService.getTopStories(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData)
+          child: Consumer<StoryProvider>(
+            builder: (context, storyProvider, widget) {
+              print(storyProvider.topStoriesIds.length);
+              if (storyProvider.topStoriesIds.length == 0)
                 return Center(
                   child: CircularProgressIndicator(),
                 );
-              var listIds = snapshot.data;
               return ListView.builder(
-                itemCount: listIds.length,
+                itemCount: storyProvider.topStoriesIds.length,
                 itemBuilder: (context, index) {
                   return FutureBuilder<Story>(
-                    future: StoryService.getStorie(listIds[index]),
+                    future: StoryService()
+                        .getStory(storyProvider.topStoriesIds[index]),
                     builder: (context, snapshot) {
                       if (!snapshot.hasData)
-                        return Center(
-                          child: CircularProgressIndicator(),
+                        return ListTile(
+                          title: Text('Loading...'),
                         );
                       return ListTile(
                         title: Text(snapshot.data.title),

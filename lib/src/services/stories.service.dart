@@ -5,8 +5,13 @@ import 'package:http/http.dart' as http;
 
 import 'package:hacker_news_app/src/core/models/story.model.dart';
 
-class StoryService {
-  static Future<List<int>> getTopStories() async {
+abstract class StoryServiceBase {
+  Future<List<int>> getTopStories();
+}
+
+class StoryService with StoryServiceBase {
+  @override
+  Future<List<int>> getTopStories() async {
     var response = await http.get(Urls.getTopStories());
 
     List x = jsonDecode(response.body);
@@ -18,7 +23,8 @@ class StoryService {
     return listStories;
   }
 
-  static Future<Story> getStorie(int id) async {
+  Future<Story> getStory(int id) async {
+    print(id);
     var response = await http.get(Urls.getStorie(id));
     var x = jsonDecode(response.body);
 
