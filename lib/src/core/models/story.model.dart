@@ -21,7 +21,7 @@ class Story {
       this.url});
 
   Story.fromJson(Map<String, dynamic> json) {
-    by = json['by'];
+    by = json['by'] ??= '';
     descendants = json['descendants'];
     id = json['id'];
     // kids = json['kids'].cast<int>();

@@ -13,12 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<StoryProvider>(
-      create: (context) => StoryProvider()..getStories(),
+      create: (context) => StoryProvider()
+        ..getNewStories()
+        ..getTopStories()
+        ..getBestStories(),
       child: MaterialApp(
         title: 'Hacker News App',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+          primarySwatch: Colors.deepOrange,
         ),
         home: HomePage(),
       ),
