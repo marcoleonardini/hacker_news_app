@@ -3,6 +3,7 @@ import 'package:hacker_news_app/src/ui/pages/best_stories.page.dart';
 
 import 'package:hacker_news_app/src/ui/pages/new_stories.page.dart';
 import 'package:hacker_news_app/src/ui/pages/top_stories.pag.dart';
+import 'package:hacker_news_app/src/ui/widgets/shape.border.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -29,24 +30,26 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 TabBar(
                   unselectedLabelColor: Colors.redAccent,
+                  labelColor: Colors.red,
                   // indicatorSize: TabBarIndicatorSize.label,
-                  indicatorPadding: EdgeInsets.only(left: 45, right: 45),
-                  indicator: ShapeDecoration(
-                    color: Colors.deepOrangeAccent,
-                    shape: StadiumBorder(),
-                  ),
+                  // indicatorPadding: EdgeInsets.only(left: 20, right: 20),
+                  indicator:
+                      CircleTabIndicator(color: Colors.pink[50], radius: 5.0),
 
                   tabs: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 4.0),
                       child: Text('News'),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 4.0),
                       child: Text('Top'),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 4.0),
                       child: Text('Best'),
                     ),
                   ],
