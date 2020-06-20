@@ -27,7 +27,8 @@ class _NewStoriesPageState extends State<BestStoriesPage>
         child: Consumer<StoryProvider>(
           builder: (context, storyProvider, widget) {
             if (storyProvider.bestStoriesIds.length == 0) return Container();
-            return ListView.builder(
+            return ListView.separated(
+              separatorBuilder: (context, index) => Divider(),
               itemCount: storyProvider.bestStoriesIds.length,
               itemBuilder: (context, index) {
                 return FutureBuilder<Story>(
