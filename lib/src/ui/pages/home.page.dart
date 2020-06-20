@@ -3,7 +3,7 @@ import 'package:hacker_news_app/src/ui/pages/best_stories.page.dart';
 
 import 'package:hacker_news_app/src/ui/pages/new_stories.page.dart';
 import 'package:hacker_news_app/src/ui/pages/top_stories.pag.dart';
-import 'package:hacker_news_app/src/ui/widgets/shape.border.dart';
+import 'package:hacker_news_app/src/ui/widgets/tab_indicator.decoration.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,11 +31,7 @@ class HomePage extends StatelessWidget {
                 TabBar(
                   unselectedLabelColor: Colors.redAccent,
                   labelColor: Colors.red,
-                  // indicatorSize: TabBarIndicatorSize.label,
-                  // indicatorPadding: EdgeInsets.only(left: 20, right: 20),
-                  indicator:
-                      CircleTabIndicator(color: Colors.pink[50], radius: 5.0),
-
+                  indicator: CircleTabIndicator(color: Colors.red, radius: 4.0),
                   tabs: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(
