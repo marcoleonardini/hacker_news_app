@@ -24,7 +24,6 @@ class Story {
     by = json['by'] ??= '';
     descendants = json['descendants'];
     id = json['id'];
-    // kids = json['kids'].cast<int>();
     score = json['score'];
     time = json['time'];
     title = json['title'];

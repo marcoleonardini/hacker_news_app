@@ -9,7 +9,6 @@ class StoryProvider extends ChangeNotifier {
 
   void getNewStories() async {
     _newStoriesIds = [];
-    // notifyListeners();
     _newStoriesIds = await StoryService().getNewStories();
     notifyListeners();
   }
