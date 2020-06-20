@@ -29,7 +29,7 @@ class Story {
     time = json['time'];
     title = json['title'];
     type = json['type'];
-    url = json['url'];
+    url = json['url'] ??= '';
   }
 
   Map<String, dynamic> toJson() {
