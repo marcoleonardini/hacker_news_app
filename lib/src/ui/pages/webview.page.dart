@@ -10,8 +10,17 @@ class WebViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebviewScaffold(
       url: url,
+      appCacheEnabled: true,
       appBar: new AppBar(
-        title: new Text("Widget webview"),
+        title: new Text(
+          "Widget webview",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
       ),
     );
   }
