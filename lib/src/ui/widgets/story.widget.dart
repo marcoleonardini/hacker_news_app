@@ -11,17 +11,48 @@ class StoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(story.title),
-      subtitle: Text('by ${story.by} --- ${story.url}'),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => WebViewPage(url: story.url),
+    final url = story.url.contains('/') ? story.url.split('/')[2] : story.url;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 4.0),
+      child: ListTile(
+        title: Text(story.title),
+        subtitle: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Text(
+                'by ${story.by}',
+              ),
+            ),
+            Expanded(
+              flex: 4,
+              child: Text(
+                '$url',
+                textAlign: TextAlign.right,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+        trailing: CircleAvatar(
+          backgroundColor: Colors.blueGrey.withOpacity(0.2),
+          child: Text(
+            '${story.score}\npts',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12.0, color: Colors.black),
           ),
-        );
-      },
+        ),
+        onTap: () {
+          if (story.url != '')
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => WebViewPage(url: story.url),
+              ),
+            );
+        },
+      ),
     );
   }
 }
