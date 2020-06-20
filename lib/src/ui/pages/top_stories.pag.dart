@@ -22,14 +22,13 @@ class _NewStoriesPageState extends State<TopStoriesPage>
       child: RefreshIndicator(
         onRefresh: () async {
           return Provider.of<StoryProvider>(context, listen: false)
-              .getNewStories();
-          // Future.delayed(Duration(seconds: 2));
+              .getTopStories();
         },
         child: Consumer<StoryProvider>(
           builder: (context, storyProvider, widget) {
-            print(storyProvider.topStoriesIds.length);
             if (storyProvider.topStoriesIds.length == 0) return Container();
-            return ListView.builder(
+            return ListView.separated(
+              separatorBuilder: (context, index) => Divider(),
               itemCount: storyProvider.topStoriesIds.length,
               itemBuilder: (context, index) {
                 return FutureBuilder<Story>(
