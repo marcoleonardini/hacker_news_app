@@ -13,7 +13,7 @@ class StoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(story.title),
-      subtitle: Text('by ${story.by} --- ${story.id}'),
+      subtitle: Text('by ${story.by} --- ${story.url}'),
       onTap: () {
         Navigator.push(
           context,

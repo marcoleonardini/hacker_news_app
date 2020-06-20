@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hacker_news_app/src/core/models/story.model.dart';
 import 'package:hacker_news_app/src/providers/story.provider.dart';
 import 'package:hacker_news_app/src/services/stories.service.dart';
-import 'package:hacker_news_app/src/ui/pages/webview.page.dart';
+import 'package:hacker_news_app/src/ui/widgets/story.widget.dart';
 import 'package:provider/provider.dart';
 
 class NewStoriesPage extends StatefulWidget {
@@ -40,19 +40,7 @@ class _NewStoriesPageState extends State<NewStoriesPage>
                       return ListTile(
                         title: Text('Loading...'),
                       );
-                    return ListTile(
-                      title: Text(snapshot.data.title),
-                      subtitle: Text(
-                          'by ${snapshot.data.by} --- ${snapshot.data.id}'),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => WebViewPage(url: snapshot.data.url),
-                          ),
-                        );
-                      },
-                    );
+                    return StoryWidget(story: snapshot.data);
                   },
                 );
               },
