@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
-
-import 'package:hacker_news_app/src/services/stories.service.dart';
+import 'package:hacker_news_app/src/core/services/stories.service.dart';
 
 class StoryProvider extends ChangeNotifier {
   List<int> _topStoriesIds = [];

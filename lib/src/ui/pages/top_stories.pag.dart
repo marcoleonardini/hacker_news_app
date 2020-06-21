@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hacker_news_app/src/core/models/story.model.dart';
-import 'package:hacker_news_app/src/providers/story.provider.dart';
-import 'package:hacker_news_app/src/services/stories.service.dart';
+import 'package:hacker_news_app/src/core/providers/story.provider.dart';
+import 'package:hacker_news_app/src/core/services/stories.service.dart';
 import 'package:hacker_news_app/src/ui/widgets/story.widget.dart';
 import 'package:provider/provider.dart';
 

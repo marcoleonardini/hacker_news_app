@@ -55,4 +55,9 @@ class StoryWidget extends StatelessWidget {
       ),
     );
   }
+
+  void _select(String choice) {
+    // Causes the app to rebuild with the new _selectedChoice.
+    print(choice);
+  }
 }
